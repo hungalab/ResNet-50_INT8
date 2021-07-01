@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="c1_weight.h" path="/home/asap_jupiter/yasu/workspace1/resnet50/params/c1_weight.h"/>
+    <originFiles name="resnet50_0.cpp" path="/home/asap_jupiter/yasu/workspace1/resnet50/hls/resnet50_0.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="tb_resnet50_0.cpp" path="/home/asap_jupiter/yasu/workspace1/resnet50/hls/tb_resnet50_0.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

@@ -1,0 +1,150 @@
+
+
+================================================================
+== Vivado HLS Report for 'roundf'
+================================================================
+* Date:           Sun Jun  6 19:22:10 2021
+
+* Version:        2019.1.3 (Build 2642998 on Wed Sep 04 10:25:22 MDT 2019)
+* Project:        resnet50_0
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffvc1760-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.151|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.23>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%x_read = call float @_ssdm_op_Read.ap_auto.float(float %x) nounwind" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:6]   --->   Operation 3 'read' 'x_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%t_V_1 = bitcast float %x_read to i32" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:310->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:319->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:194->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 4 'bitcast' 't_V_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%tmp_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %t_V_1, i32 23, i32 30) nounwind" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:317->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:319->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:194->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 5 'partselect' 'tmp_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.84ns)   --->   "%icmp_ln849 = icmp ult i8 %tmp_V, 126" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:196->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 6 'icmp' 'icmp_ln849' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 7 [1/1] (0.84ns)   --->   "%icmp_ln849_1 = icmp ugt i8 %tmp_V, -106" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:199->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 7 'icmp' 'icmp_ln849_1' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%index_V = call i5 @_ssdm_op_PartSelect.i5.i32.i32.i32(i32 %t_V_1, i32 23, i32 27) nounwind" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:207->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 8 'partselect' 'index_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln498 = zext i5 %index_V to i64" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:208->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 9 'zext' 'zext_ln498' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%mask_table1_addr = getelementptr [32 x i23]* @mask_table1, i64 0, i64 %zext_ln498" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:208->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 10 'getelementptr' 'mask_table1_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [2/2] (1.23ns)   --->   "%mask = load i23* %mask_table1_addr, align 4" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:208->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 11 'load' 'mask' <Predicate = true> <Delay = 1.23> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 24> <Depth = 32> <ROM>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%one_half_table2_addr = getelementptr [32 x i24]* @one_half_table2, i64 0, i64 %zext_ln498" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:209->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 12 'getelementptr' 'one_half_table2_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [2/2] (1.23ns)   --->   "%one_half = load i24* %one_half_table2_addr, align 4" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:209->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 13 'load' 'one_half' <Predicate = true> <Delay = 1.23> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 24> <Depth = 32> <ROM>
+
+State 2 <SV = 1> <Delay = 3.15>
+ST_2 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%p_Result_s = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %t_V_1, i32 31)" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:316->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:319->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:194->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 14 'bitselect' 'p_Result_s' <Predicate = (icmp_ln849)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%p_Result_11 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 %p_Result_s, i31 0)" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:335->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:348->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:369->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:14->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:198->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 15 'bitconcatenate' 'p_Result_11' <Predicate = (icmp_ln849)> <Delay = 0.00>
+ST_2 : Operation 16 [1/2] (1.23ns)   --->   "%mask = load i23* %mask_table1_addr, align 4" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:208->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 16 'load' 'mask' <Predicate = true> <Delay = 1.23> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 24> <Depth = 32> <ROM>
+ST_2 : Operation 17 [1/2] (1.23ns)   --->   "%one_half = load i24* %one_half_table2_addr, align 4" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:209->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 17 'load' 'one_half' <Predicate = true> <Delay = 1.23> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 24> <Depth = 32> <ROM>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%zext_ln209 = zext i24 %one_half to i32" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:209->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 18 'zext' 'zext_ln209' <Predicate = (!icmp_ln849)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.01ns)   --->   "%p_Val2_s = add i32 %zext_ln209, %t_V_1" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:211->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 19 'add' 'p_Val2_s' <Predicate = (!icmp_ln849)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%tmp_V_1 = trunc i32 %p_Val2_s to i23" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:323->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:324->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:211->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 20 'trunc' 'tmp_V_1' <Predicate = (!icmp_ln849)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%xor_ln1309 = xor i23 %mask, -1" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:213->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 21 'xor' 'xor_ln1309' <Predicate = (!icmp_ln849)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%xs_sig_V = and i23 %tmp_V_1, %xor_ln1309" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:213->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 22 'and' 'xs_sig_V' <Predicate = (!icmp_ln849)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%tmp = call i9 @_ssdm_op_PartSelect.i9.i32.i32.i32(i32 %p_Val2_s, i32 23, i32 31)" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:335->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:348->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:369->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:214->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 23 'partselect' 'tmp' <Predicate = (!icmp_ln849)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%p_Result_12 = call i32 @_ssdm_op_BitConcatenate.i32.i9.i23(i9 %tmp, i23 %xs_sig_V)" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:335->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:348->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:369->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:214->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 24 'bitconcatenate' 'p_Result_12' <Predicate = (!icmp_ln849)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node bitcast_ln849)   --->   "%select_ln849 = select i1 %icmp_ln849, i32 %p_Result_11, i32 %p_Result_12" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:196->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 25 'select' 'select_ln849' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 26 [1/1] (0.44ns) (out node of the LUT)   --->   "%bitcast_ln849 = bitcast i32 %select_ln849 to float" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:196->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 26 'bitcast' 'bitcast_ln849' <Predicate = true> <Delay = 0.44>
+ST_2 : Operation 27 [1/1] (0.00ns) (grouped into LUT with out node select_ln849_1)   --->   "%xor_ln849 = xor i1 %icmp_ln849, true" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:196->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 27 'xor' 'xor_ln849' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node select_ln849_1)   --->   "%and_ln849 = and i1 %icmp_ln849_1, %xor_ln849" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:199->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 28 'and' 'and_ln849' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 29 [1/1] (0.44ns) (out node of the LUT)   --->   "%select_ln849_1 = select i1 %and_ln849, float %x_read, float %bitcast_ln849" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:199->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 29 'select' 'select_ln849_1' <Predicate = true> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "ret float %select_ln849_1" [/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7]   --->   Operation 30 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.24ns
+The critical path consists of the following:
+	wire read on port 'x' (/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:6) [4]  (0 ns)
+	'getelementptr' operation ('mask_table1_addr', /wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:208->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7) [13]  (0 ns)
+	'load' operation ('mask', /wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:208->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7) on array 'mask_table1' [14]  (1.24 ns)
+
+ <State 2>: 3.15ns
+The critical path consists of the following:
+	'load' operation ('one_half', /wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:209->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7) on array 'one_half_table2' [16]  (1.24 ns)
+	'add' operation ('__Val2__', /wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:211->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7) [18]  (1.02 ns)
+	'select' operation ('select_ln849', /wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:196->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7) [24]  (0 ns)
+	'select' operation ('select_ln849_1', /wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_round.h:199->/wrk/2019.sub/2019.1.3/continuous/2019_09_04_2644227/src/products/hls/hls_lib/hlsmath/src/c/roundfloat.cpp:7) [28]  (0.449 ns)
+	blocking operation 0.449 ns on control path)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

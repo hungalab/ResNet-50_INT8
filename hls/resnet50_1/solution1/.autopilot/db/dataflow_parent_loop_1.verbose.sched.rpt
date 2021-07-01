@@ -1,0 +1,155 @@
+
+
+================================================================
+== Vivado HLS Report for 'dataflow_parent_loop_1'
+================================================================
+* Date:           Sun Jun  6 15:09:18 2021
+
+* Version:        2019.1.3 (Build 2642998 on Wed Sep 04 10:25:22 MDT 2019)
+* Project:        resnet50_1
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffvc1760-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    | min |   max   | min |   max   |   Type  |
+    +-----+---------+-----+---------+---------+
+    |  362|  7313034|  362|  7313034|   none  |
+    +-----+---------+-----+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+-----+---------+------------+-----------+-----------+----------+----------+
+        |               |    Latency    |  Iteration |  Initiation Interval  |   Trip   |          |
+        |   Loop Name   | min |   max   |   Latency  |  achieved |   target  |   Count  | Pipelined|
+        +---------------+-----+---------+------------+-----------+-----------+----------+----------+
+        |- Convolution  |  361|  7313033| 225 ~ 3312 |          -|          -| 2 ~ 2304 |    no    |
+        +---------------+-----+---------+------------+-----------+-----------+----------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 2, States = { 2 3 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([25088 x i288]* %input_V, [1 x i8]* @p_str, [12 x i8]* @p_str28, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 4 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([12544 x i1536]* %outbuf_V_4, [1 x i8]* @p_str, [12 x i8]* @p_str29, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 5 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i128* %ddr_V, [6 x i8]* @p_str27, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1024, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 6 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%K_read = call i2 @_ssdm_op_Read.ap_auto.i2(i2 %K)" [resnet50_1.cpp:206]   --->   Operation 7 'read' 'K_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%P_read = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %P)" [resnet50_1.cpp:206]   --->   Operation 8 'read' 'P_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%S_read = call i2 @_ssdm_op_Read.ap_auto.i2(i2 %S)" [resnet50_1.cpp:206]   --->   Operation 9 'read' 'S_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%TI_read = call i6 @_ssdm_op_Read.ap_auto.i6(i6 %TI)" [resnet50_1.cpp:206]   --->   Operation 10 'read' 'TI_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%TO_read = call i5 @_ssdm_op_Read.ap_auto.i5(i5 %TO_r)" [resnet50_1.cpp:206]   --->   Operation 11 'read' 'TO_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%OSIZE_read = call i6 @_ssdm_op_Read.ap_auto.i6(i6 %OSIZE)" [resnet50_1.cpp:206]   --->   Operation 12 'read' 'OSIZE_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%OFFSET_read = call i22 @_ssdm_op_Read.ap_auto.i22(i22 %OFFSET)" [resnet50_1.cpp:206]   --->   Operation 13 'read' 'OFFSET_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%mul_ln204_2_read = call i21 @_ssdm_op_Read.ap_auto.i21(i21 %mul_ln204_2)" [resnet50_1.cpp:206]   --->   Operation 14 'read' 'mul_ln204_2_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%trunc_ln206 = trunc i21 %mul_ln204_2_read to i14" [resnet50_1.cpp:206]   --->   Operation 15 'trunc' 'trunc_ln206' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.65ns)   --->   "br label %0"   --->   Operation 16 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 1.83>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%l_0 = phi i13 [ 0, %newFuncRoot ], [ %l, %Convolution ]"   --->   Operation 17 'phi' 'l_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%zext_ln206 = zext i13 %l_0 to i14" [resnet50_1.cpp:206]   --->   Operation 18 'zext' 'zext_ln206' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (1.03ns)   --->   "%icmp_ln206 = icmp slt i14 %zext_ln206, %trunc_ln206" [resnet50_1.cpp:206]   --->   Operation 19 'icmp' 'icmp_ln206' <Predicate = true> <Delay = 1.03> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [21 x i8]* @dataflow_parent_loop, i13 %l_0, i21 %mul_ln204_2)" [resnet50_1.cpp:206]   --->   Operation 20 'specdataflowpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.82ns)   --->   "%l = add i13 %l_0, 1" [resnet50_1.cpp:206]   --->   Operation 21 'add' 'l' <Predicate = true> <Delay = 0.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %icmp_ln206, label %Convolution, label %.exitStub" [resnet50_1.cpp:206]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [2/2] (1.83ns)   --->   "call fastcc void @dataflow_in_loop_Con(i128* %ddr_V, i13 %l_0, i22 %OFFSET_read, [25088 x i288]* %input_V, [12544 x i1536]* %outbuf_V_4, i6 %OSIZE_read, i5 %TO_read, i6 %TI_read, i2 %S_read, i1 %P_read, i2 %K_read)" [resnet50_1.cpp:206]   --->   Operation 23 'call' <Predicate = (icmp_ln206)> <Delay = 1.83> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 24 'ret' <Predicate = (!icmp_ln206)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str20) nounwind" [resnet50_1.cpp:206]   --->   Operation 25 'specloopname' <Predicate = (icmp_ln206)> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str20)" [resnet50_1.cpp:206]   --->   Operation 26 'specregionbegin' 'tmp' <Predicate = (icmp_ln206)> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent([25088 x i288]* %input_V) nounwind"   --->   Operation 27 'specstablecontent' <Predicate = (icmp_ln206)> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent([12544 x i1536]* %outbuf_V_4) nounwind"   --->   Operation 28 'specstablecontent' <Predicate = (icmp_ln206)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i32 2, i32 2304, i32 1153, [1 x i8]* @p_str) nounwind" [resnet50_1.cpp:210]   --->   Operation 29 'speclooptripcount' <Predicate = (icmp_ln206)> <Delay = 0.00>
+ST_3 : Operation 30 [1/2] (0.00ns)   --->   "call fastcc void @dataflow_in_loop_Con(i128* %ddr_V, i13 %l_0, i22 %OFFSET_read, [25088 x i288]* %input_V, [12544 x i1536]* %outbuf_V_4, i6 %OSIZE_read, i5 %TO_read, i6 %TI_read, i2 %S_read, i1 %P_read, i2 %K_read)" [resnet50_1.cpp:206]   --->   Operation 30 'call' <Predicate = (icmp_ln206)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str20, i32 %tmp)" [resnet50_1.cpp:221]   --->   Operation 31 'specregionend' 'empty' <Predicate = (icmp_ln206)> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "br label %0" [resnet50_1.cpp:206]   --->   Operation 32 'br' <Predicate = (icmp_ln206)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('l') with incoming values : ('l', resnet50_1.cpp:206) [26]  (0.656 ns)
+
+ <State 2>: 1.84ns
+The critical path consists of the following:
+	'phi' operation ('l') with incoming values : ('l', resnet50_1.cpp:206) [26]  (0 ns)
+	'call' operation ('call_ln206', resnet50_1.cpp:206) to 'dataflow_in_loop_Con' [38]  (1.84 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

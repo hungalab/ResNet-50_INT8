@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.3 (64-bit)
+# SW Build 2644227 on Wed Sep  4 09:44:18 MDT 2019
+# IP Build 2633630 on Wed Sep  4 12:30:14 MDT 2019
+# Start of session at: Sun Jun  6 19:29:25 2021
+# Process ID: 325660
+# Current directory: /home/asap_jupiter/yasu/workspace1/resnet50/hls/resnet50_0/solution1/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /home/asap_jupiter/yasu/workspace1/resnet50/hls/resnet50_0/solution1/impl/ip/vivado.log
+# Journal file: /home/asap_jupiter/yasu/workspace1/resnet50/hls/resnet50_0/solution1/impl/ip/vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace

@@ -1,0 +1,219 @@
+
+
+================================================================
+== Vivado HLS Report for 'dataflow_parent_loop_1'
+================================================================
+* Date:           Sun Jun  6 15:18:29 2021
+
+* Version:        2019.1.3 (Build 2642998 on Wed Sep 04 10:25:22 MDT 2019)
+* Project:        resnet50_3
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffvc1760-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+--------+-------+--------+---------+
+    |     Latency    |    Interval    | Pipeline|
+    |  min  |   max  |  min  |   max  |   Type  |
+    +-------+--------+-------+--------+---------+
+    |  17626|  315738|  17626|  315738|   none  |
+    +-------+--------+-------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+-----+-----+-----+-----+----------+
+        |                         |                      |  Latency  |  Interval | Pipeline |
+        |         Instance        |        Module        | min | max | min | max |   Type   |
+        +-------------------------+----------------------+-----+-----+-----+-----+----------+
+        |dataflow_in_loop_Con_U0  |dataflow_in_loop_Con  |  225|  225|  137|  137| dataflow |
+        +-------------------------+----------------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        +---------------+-------+--------+----------+-----------+-----------+------------+----------+
+        |               |     Latency    | Iteration|  Initiation Interval  |    Trip    |          |
+        |   Loop Name   |  min  |   max  |  Latency |  achieved |   target  |    Count   | Pipelined|
+        +---------------+-------+--------+----------+-----------+-----------+------------+----------+
+        |- Convolution  |  17625|  315737|       227|          -|          -| 128 ~ 2304 |    no    |
+        +---------------+-------+--------+----------+-----------+-----------+------------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+---------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|    FF   |   LUT  | URAM|
++-----------------+---------+-------+---------+--------+-----+
+|DSP              |        -|      -|        -|       -|    -|
+|Expression       |        -|      -|        0|      90|    -|
+|FIFO             |        -|      -|        -|       -|    -|
+|Instance         |        0|   1026|    66003|  119325|    -|
+|Memory           |        -|      -|        -|       -|    -|
+|Multiplexer      |        -|      -|        -|      18|    -|
+|Register         |        -|      -|       46|       -|    -|
++-----------------+---------+-------+---------+--------+-----+
+|Total            |        0|   1026|    66049|  119433|    0|
++-----------------+---------+-------+---------+--------+-----+
+|Available        |     1968|   1968|  1045440|  522720|  128|
++-----------------+---------+-------+---------+--------+-----+
+|Utilization (%)  |        0|     52|        6|      22|    0|
++-----------------+---------+-------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-------+-------+--------+-----+
+    |         Instance        |        Module        | BRAM_18K| DSP48E|   FF  |   LUT  | URAM|
+    +-------------------------+----------------------+---------+-------+-------+--------+-----+
+    |dataflow_in_loop_Con_U0  |dataflow_in_loop_Con  |        0|   1026|  66003|  119325|    0|
+    +-------------------------+----------------------+---------+-------+-------+--------+-----+
+    |Total                    |                      |        0|   1026|  66003|  119325|    0|
+    +-------------------------+----------------------+---------+-------+-------+--------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |        Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |loop_dataflow_input_count   |     +    |      0|  0|  30|          23|           1|
+    |loop_dataflow_output_count  |     +    |      0|  0|  30|          23|           1|
+    |bound_minus_1               |     -    |      0|  0|  30|          23|           1|
+    +----------------------------+----------+-------+---+----+------------+------------+
+    |Total                       |          |      0|  0|  90|          69|           3|
+    +----------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |loop_dataflow_input_count   |   9|          2|   23|         46|
+    |loop_dataflow_output_count  |   9|          2|   23|         46|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       |  18|          4|   46|         92|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+----+----+-----+-----------+
+    |            Name            | FF | LUT| Bits| Const Bits|
+    +----------------------------+----+----+-----+-----------+
+    |loop_dataflow_input_count   |  23|   0|   23|          0|
+    |loop_dataflow_output_count  |  23|   0|   23|          0|
+    +----------------------------+----+----+-----+-----------+
+    |Total                       |  46|   0|   46|          0|
+    +----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+------+------------+------------------------+--------------+
+|       RTL Ports      | Dir | Bits |  Protocol  |      Source Object     |    C Type    |
++----------------------+-----+------+------------+------------------------+--------------+
+|mul_ln170_2           |  in |    23|   ap_none  |       mul_ln170_2      |    scalar    |
+|input_V_address0      | out |    12|  ap_memory |         input_V        |     array    |
+|input_V_ce0           | out |     1|  ap_memory |         input_V        |     array    |
+|input_V_d0            | out |   288|  ap_memory |         input_V        |     array    |
+|input_V_q0            |  in |   288|  ap_memory |         input_V        |     array    |
+|input_V_we0           | out |     1|  ap_memory |         input_V        |     array    |
+|input_V_address1      | out |    12|  ap_memory |         input_V        |     array    |
+|input_V_ce1           | out |     1|  ap_memory |         input_V        |     array    |
+|input_V_d1            | out |   288|  ap_memory |         input_V        |     array    |
+|input_V_q1            |  in |   288|  ap_memory |         input_V        |     array    |
+|input_V_we1           | out |     1|  ap_memory |         input_V        |     array    |
+|outbuf_V_4_address0   | out |    11|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_ce0        | out |     1|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_d0         | out |  1536|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_q0         |  in |  1536|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_we0        | out |     1|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_address1   | out |    11|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_ce1        | out |     1|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_d1         | out |  1536|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_q1         |  in |  1536|  ap_memory |       outbuf_V_4       |     array    |
+|outbuf_V_4_we1        | out |     1|  ap_memory |       outbuf_V_4       |     array    |
+|m_axi_ddr_V_AWVALID   | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWREADY   |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWADDR    | out |    32|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWID      | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWLEN     | out |    32|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWSIZE    | out |     3|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWBURST   | out |     2|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWLOCK    | out |     2|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWCACHE   | out |     4|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWPROT    | out |     3|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWQOS     | out |     4|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWREGION  | out |     4|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_AWUSER    | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WVALID    | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WREADY    |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WDATA     | out |   128|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WSTRB     | out |    16|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WLAST     | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WID       | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_WUSER     | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARVALID   | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARREADY   |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARADDR    | out |    32|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARID      | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARLEN     | out |    32|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARSIZE    | out |     3|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARBURST   | out |     2|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARLOCK    | out |     2|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARCACHE   | out |     4|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARPROT    | out |     3|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARQOS     | out |     4|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARREGION  | out |     4|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_ARUSER    | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RVALID    |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RREADY    | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RDATA     |  in |   128|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RLAST     |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RID       |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RUSER     |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_RRESP     |  in |     2|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_BVALID    |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_BREADY    | out |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_BRESP     |  in |     2|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_BID       |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|m_axi_ddr_V_BUSER     |  in |     1|    m_axi   |          ddr_V         |    pointer   |
+|OFFSET                |  in |    23|   ap_none  |         OFFSET         |    scalar    |
+|OFFSET_ap_vld         |  in |     1|   ap_none  |         OFFSET         |    scalar    |
+|TO_r                  |  in |     6|   ap_none  |          TO_r          |    scalar    |
+|TO_r_ap_vld           |  in |     1|   ap_none  |          TO_r          |    scalar    |
+|TI                    |  in |     7|   ap_none  |           TI           |    scalar    |
+|TI_ap_vld             |  in |     1|   ap_none  |           TI           |    scalar    |
+|P                     |  in |     1|   ap_none  |            P           |    scalar    |
+|P_ap_vld              |  in |     1|   ap_none  |            P           |    scalar    |
+|K                     |  in |     2|   ap_none  |            K           |    scalar    |
+|K_ap_vld              |  in |     1|   ap_none  |            K           |    scalar    |
+|ap_clk                |  in |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
+|ap_rst                |  in |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
+|ap_start              |  in |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
+|ap_done               | out |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
+|ap_ready              | out |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
+|ap_idle               | out |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
+|ap_continue           |  in |     1| ap_ctrl_hs | dataflow_parent_loop.1 | return value |
++----------------------+-----+------+------------+------------------------+--------------+
+

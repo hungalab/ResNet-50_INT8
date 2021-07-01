@@ -1,0 +1,53 @@
+<InterfaceSummary>
+<RtlPorts>
+<name>sw0in_V</name>
+<CType>
+<TypeName>ap_uint 169</TypeName>
+<TypeWidth>169</TypeWidth>
+<PhysicalWidth>176</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>sw0out_V</name>
+<CType>
+<TypeName>ap_uint 169</TypeName>
+<TypeWidth>169</TypeWidth>
+<PhysicalWidth>176</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>ddr_V</name>
+<CType>
+<TypeName>ap_uint 128</TypeName>
+<TypeWidth>128</TypeWidth>
+<PhysicalWidth>128</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>startt_V</name>
+<CType>
+<TypeName>ap_uint 4</TypeName>
+<TypeWidth>4</TypeWidth>
+<PhysicalWidth>8</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>stopt_V</name>
+<CType>
+<TypeName>ap_uint 4</TypeName>
+<TypeWidth>4</TypeWidth>
+<PhysicalWidth>8</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+</InterfaceSummary>
+

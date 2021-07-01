@@ -1,0 +1,147 @@
+
+
+================================================================
+== Vivado HLS Report for 'dataflow_parent_loop_2'
+================================================================
+* Date:           Sun Jun  6 19:22:26 2021
+
+* Version:        2019.1.3 (Build 2642998 on Wed Sep 04 10:25:22 MDT 2019)
+* Project:        resnet50_0
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffvc1760-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.540|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  5842|  5842|  5842|  5842|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |          |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  5841|  5841|        70|          -|          -|   112|    no    |
+        +----------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 2, States = { 2 3 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([25088 x i288]* %output_V, [1 x i8]* @p_str, [12 x i8]* @p_str41, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 4 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([6272 x i216]* %input_V, [1 x i8]* @p_str, [12 x i8]* @p_str41, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 5 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%row_assign_read = call i7 @_ssdm_op_Read.ap_auto.i7(i7 %row_assign)"   --->   Operation 6 'read' 'row_assign_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.65ns)   --->   "br label %.preheader.i.i"   --->   Operation 7 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 1.83>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%col_assign = phi i7 [ %col, %hls_label_20 ], [ 0, %newFuncRoot ]"   --->   Operation 8 'phi' 'col_assign' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.81ns)   --->   "%icmp_ln301 = icmp eq i7 %col_assign, -16" [resnet50_0.cpp:301]   --->   Operation 9 'icmp' 'icmp_ln301' <Predicate = true> <Delay = 0.81> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.81> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 112, i64 112, i64 112)"   --->   Operation 10 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, i32 0, [21 x i8]* @dataflow_parent_loop, i7 %col_assign, i7 -16)" [resnet50_0.cpp:301]   --->   Operation 11 'specdataflowpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.77ns)   --->   "%col = add i7 %col_assign, 1" [resnet50_0.cpp:301]   --->   Operation 12 'add' 'col' <Predicate = true> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln301, label %.exitStub, label %hls_label_20" [resnet50_0.cpp:301]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [2/2] (1.83ns)   --->   "call fastcc void @dataflow_in_loop(i7 %row_assign_read, i7 %col_assign, [6272 x i216]* %input_V, [25088 x i288]* %output_V)" [resnet50_0.cpp:301]   --->   Operation 14 'call' <Predicate = (!icmp_ln301)> <Delay = 1.83> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 15 'ret' <Predicate = (icmp_ln301)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str27)" [resnet50_0.cpp:301]   --->   Operation 16 'specregionbegin' 'tmp' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent([6272 x i216]* %input_V)"   --->   Operation 17 'specstablecontent' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent([25088 x i288]* %output_V) nounwind"   --->   Operation 18 'specstablecontent' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent([49 x i7]* @c1_weight_V_0, [49 x i8]* @c1_weight_V_1, [49 x i8]* @c1_weight_V_2, [49 x i8]* @c1_weight_V_3, [49 x i8]* @c1_weight_V_4, [49 x i7]* @c1_weight_V_5, [49 x i8]* @c1_weight_V_6, [49 x i8]* @c1_weight_V_7, [49 x i8]* @c1_weight_V_8, [49 x i7]* @c1_weight_V_9, [49 x i8]* @c1_weight_V_10, [49 x i8]* @c1_weight_V_11, [49 x i8]* @c1_weight_V_12, [49 x i8]* @c1_weight_V_13, [49 x i8]* @c1_weight_V_14, [49 x i8]* @c1_weight_V_15, [49 x i8]* @c1_weight_V_16, [49 x i8]* @c1_weight_V_17, [49 x i8]* @c1_weight_V_18, [49 x i8]* @c1_weight_V_19, [49 x i8]* @c1_weight_V_20, [49 x i8]* @c1_weight_V_21, [49 x i8]* @c1_weight_V_22, [49 x i8]* @c1_weight_V_23, [49 x i8]* @c1_weight_V_24, [49 x i8]* @c1_weight_V_25, [49 x i8]* @c1_weight_V_26, [49 x i8]* @c1_weight_V_27, [49 x i8]* @c1_weight_V_28, [49 x i8]* @c1_weight_V_29, [49 x i8]* @c1_weight_V_30, [49 x i6]* @c1_weight_V_31, [49 x i8]* @c1_weight_V_32, [49 x i8]* @c1_weight_V_33, [49 x i8]* @c1_weight_V_34, [49 x i8]* @c1_weight_V_35, [49 x i8]* @c1_weight_V_36, [49 x i6]* @c1_weight_V_37, [49 x i8]* @c1_weight_V_38, [49 x i8]* @c1_weight_V_39, [49 x i8]* @c1_weight_V_40, [49 x i8]* @c1_weight_V_41, [49 x i8]* @c1_weight_V_42, [49 x i4]* @c1_weight_V_43, [49 x i8]* @c1_weight_V_44, [49 x i8]* @c1_weight_V_45, [49 x i8]* @c1_weight_V_46, [49 x i8]* @c1_weight_V_47, [49 x i8]* @c1_weight_V_48, [49 x i6]* @c1_weight_V_49, [49 x i8]* @c1_weight_V_50, [49 x i8]* @c1_weight_V_51, [49 x i8]* @c1_weight_V_52, [49 x i7]* @c1_weight_V_53, [49 x i8]* @c1_weight_V_54, [49 x i8]* @c1_weight_V_55, [49 x i8]* @c1_weight_V_56, [49 x i6]* @c1_weight_V_57, [49 x i8]* @c1_weight_V_58, [49 x i8]* @c1_weight_V_59, [49 x i8]* @c1_weight_V_60, [49 x i8]* @c1_weight_V_61, [49 x i8]* @c1_weight_V_62, [49 x i8]* @c1_weight_V_63, [49 x i8]* @c1_weight_V_64, [49 x i7]* @c1_weight_V_65, [49 x i8]* @c1_weight_V_66, [49 x i8]* @c1_weight_V_67, [49 x i8]* @c1_weight_V_68, [49 x i8]* @c1_weight_V_69, [49 x i8]* @c1_weight_V_70, [49 x i7]* @c1_weight_V_71, [49 x i8]* @c1_weight_V_72, [49 x i8]* @c1_weight_V_73, [49 x i7]* @c1_weight_V_74, [49 x i6]* @c1_weight_V_75, [49 x i8]* @c1_weight_V_76, [49 x i8]* @c1_weight_V_77, [49 x i8]* @c1_weight_V_78, [49 x i8]* @c1_weight_V_79, [49 x i8]* @c1_weight_V_80, [49 x i8]* @c1_weight_V_81, [49 x i8]* @c1_weight_V_82, [49 x i8]* @c1_weight_V_83, [49 x i8]* @c1_weight_V_84, [49 x i8]* @c1_weight_V_85, [49 x i8]* @c1_weight_V_86, [49 x i7]* @c1_weight_V_87, [49 x i8]* @c1_weight_V_88, [49 x i8]* @c1_weight_V_89, [49 x i8]* @c1_weight_V_90, [49 x i8]* @c1_weight_V_91, [49 x i6]* @c1_weight_V_92, [49 x i8]* @c1_weight_V_93, [49 x i8]* @c1_weight_V_94, [49 x i7]* @c1_weight_V_95, [49 x i6]* @c1_weight_V_96, [49 x i8]* @c1_weight_V_97, [49 x i8]* @c1_weight_V_98, [49 x i8]* @c1_weight_V_99, [49 x i8]* @c1_weight_V_100, [49 x i8]* @c1_weight_V_101, [49 x i8]* @c1_weight_V_102, [49 x i7]* @c1_weight_V_103, [49 x i8]* @c1_weight_V_104, [49 x i8]* @c1_weight_V_105, [49 x i8]* @c1_weight_V_106, [49 x i6]* @c1_weight_V_107, [49 x i8]* @c1_weight_V_108, [49 x i8]* @c1_weight_V_109, [49 x i8]* @c1_weight_V_110, [49 x i8]* @c1_weight_V_111, [49 x i8]* @c1_weight_V_112, [49 x i7]* @c1_weight_V_113, [49 x i8]* @c1_weight_V_114, [49 x i8]* @c1_weight_V_115, [49 x i8]* @c1_weight_V_116, [49 x i8]* @c1_weight_V_117, [49 x i8]* @c1_weight_V_118, [49 x i8]* @c1_weight_V_119, [49 x i8]* @c1_weight_V_120, [49 x i7]* @c1_weight_V_121, [49 x i7]* @c1_weight_V_122, [49 x i8]* @c1_weight_V_123, [49 x i6]* @c1_weight_V_124, [49 x i8]* @c1_weight_V_125, [49 x i8]* @c1_weight_V_126, [49 x i8]* @c1_weight_V_127, [49 x i7]* @c1_weight_V_128, [49 x i8]* @c1_weight_V_129, [49 x i6]* @c1_weight_V_130, [49 x i8]* @c1_weight_V_131, [49 x i8]* @c1_weight_V_132, [49 x i8]* @c1_weight_V_133, [49 x i8]* @c1_weight_V_134, [49 x i8]* @c1_weight_V_135, [49 x i7]* @c1_weight_V_136, [49 x i8]* @c1_weight_V_137, [49 x i8]* @c1_weight_V_138, [49 x i8]* @c1_weight_V_139, [49 x i8]* @c1_weight_V_140, [49 x i8]* @c1_weight_V_141, [49 x i8]* @c1_weight_V_142, [49 x i7]* @c1_weight_V_143, [49 x i8]* @c1_weight_V_144, [49 x i8]* @c1_weight_V_145, [49 x i8]* @c1_weight_V_146, [49 x i8]* @c1_weight_V_147, [49 x i8]* @c1_weight_V_148, [49 x i8]* @c1_weight_V_149, [49 x i8]* @c1_weight_V_150, [49 x i8]* @c1_weight_V_151, [49 x i7]* @c1_weight_V_152, [49 x i8]* @c1_weight_V_153, [49 x i8]* @c1_weight_V_154, [49 x i7]* @c1_weight_V_155, [49 x i8]* @c1_weight_V_156, [49 x i8]* @c1_weight_V_157, [49 x i8]* @c1_weight_V_158, [49 x i8]* @c1_weight_V_159, [49 x i8]* @c1_weight_V_160, [49 x i7]* @c1_weight_V_161, [49 x i8]* @c1_weight_V_162, [49 x i8]* @c1_weight_V_163, [49 x i8]* @c1_weight_V_164, [49 x i8]* @c1_weight_V_165, [49 x i8]* @c1_weight_V_166, [49 x i7]* @c1_weight_V_167, [49 x i8]* @c1_weight_V_168, [49 x i8]* @c1_weight_V_169, [49 x i7]* @c1_weight_V_170, [49 x i7]* @c1_weight_V_171, [49 x i8]* @c1_weight_V_172, [49 x i8]* @c1_weight_V_173, [49 x i8]* @c1_weight_V_174, [49 x i8]* @c1_weight_V_175, [49 x i8]* @c1_weight_V_176, [49 x i8]* @c1_weight_V_177, [49 x i8]* @c1_weight_V_178, [49 x i8]* @c1_weight_V_179, [49 x i8]* @c1_weight_V_180, [49 x i8]* @c1_weight_V_181, [49 x i7]* @c1_weight_V_182, [49 x i8]* @c1_weight_V_183, [49 x i8]* @c1_weight_V_184, [49 x i7]* @c1_weight_V_185, [49 x i8]* @c1_weight_V_186, [49 x i7]* @c1_weight_V_187, [49 x i7]* @c1_weight_V_188, [49 x i8]* @c1_weight_V_189, [49 x i8]* @c1_weight_V_190, [49 x i8]* @c1_weight_V_191) nounwind" [resnet50_0.cpp:305]   --->   Operation 19 'specstablecontent' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent(float* @c1_bias_0, float* @c1_bias_1, float* @c1_bias_2, float* @c1_bias_3, float* @c1_bias_4, float* @c1_bias_5, float* @c1_bias_6, float* @c1_bias_7, float* @c1_bias_8, float* @c1_bias_9, float* @c1_bias_10, float* @c1_bias_11, float* @c1_bias_12, float* @c1_bias_13, float* @c1_bias_14, float* @c1_bias_15, float* @c1_bias_16, float* @c1_bias_17, float* @c1_bias_18, float* @c1_bias_19, float* @c1_bias_20, float* @c1_bias_21, float* @c1_bias_22, float* @c1_bias_23, float* @c1_bias_24, float* @c1_bias_25, float* @c1_bias_26, float* @c1_bias_27, float* @c1_bias_28, float* @c1_bias_29, float* @c1_bias_30, float* @c1_bias_31, float* @c1_bias_32, float* @c1_bias_33, float* @c1_bias_34, float* @c1_bias_35, float* @c1_bias_36, float* @c1_bias_37, float* @c1_bias_38, float* @c1_bias_39, float* @c1_bias_40, float* @c1_bias_41, float* @c1_bias_42, float* @c1_bias_43, float* @c1_bias_44, float* @c1_bias_45, float* @c1_bias_46, float* @c1_bias_47, float* @c1_bias_48, float* @c1_bias_49, float* @c1_bias_50, float* @c1_bias_51, float* @c1_bias_52, float* @c1_bias_53, float* @c1_bias_54, float* @c1_bias_55, float* @c1_bias_56, float* @c1_bias_57, float* @c1_bias_58, float* @c1_bias_59, float* @c1_bias_60, float* @c1_bias_61, float* @c1_bias_62, float* @c1_bias_63) nounwind" [resnet50_0.cpp:306]   --->   Operation 20 'specstablecontent' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecStableContent(float* @c1_scale_0, float* @c1_scale_1, float* @c1_scale_2, float* @c1_scale_3, float* @c1_scale_4, float* @c1_scale_5, float* @c1_scale_6, float* @c1_scale_7, float* @c1_scale_8, float* @c1_scale_9, float* @c1_scale_10, float* @c1_scale_11, float* @c1_scale_12, float* @c1_scale_13, float* @c1_scale_14, float* @c1_scale_15, float* @c1_scale_16, float* @c1_scale_17, float* @c1_scale_18, float* @c1_scale_19, float* @c1_scale_20, float* @c1_scale_21, float* @c1_scale_22, float* @c1_scale_23, float* @c1_scale_24, float* @c1_scale_25, float* @c1_scale_26, float* @c1_scale_27, float* @c1_scale_28, float* @c1_scale_29, float* @c1_scale_30, float* @c1_scale_31, float* @c1_scale_32, float* @c1_scale_33, float* @c1_scale_34, float* @c1_scale_35, float* @c1_scale_36, float* @c1_scale_37, float* @c1_scale_38, float* @c1_scale_39, float* @c1_scale_40, float* @c1_scale_41, float* @c1_scale_42, float* @c1_scale_43, float* @c1_scale_44, float* @c1_scale_45, float* @c1_scale_46, float* @c1_scale_47, float* @c1_scale_48, float* @c1_scale_49, float* @c1_scale_50, float* @c1_scale_51, float* @c1_scale_52, float* @c1_scale_53, float* @c1_scale_54, float* @c1_scale_55, float* @c1_scale_56, float* @c1_scale_57, float* @c1_scale_58, float* @c1_scale_59, float* @c1_scale_60, float* @c1_scale_61, float* @c1_scale_62, float* @c1_scale_63) nounwind" [resnet50_0.cpp:307]   --->   Operation 21 'specstablecontent' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 22 [1/2] (0.00ns)   --->   "call fastcc void @dataflow_in_loop(i7 %row_assign_read, i7 %col_assign, [6272 x i216]* %input_V, [25088 x i288]* %output_V)" [resnet50_0.cpp:301]   --->   Operation 22 'call' <Predicate = (!icmp_ln301)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str27, i32 %tmp)" [resnet50_0.cpp:315]   --->   Operation 23 'specregionend' 'empty' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br label %.preheader.i.i" [resnet50_0.cpp:301]   --->   Operation 24 'br' <Predicate = (!icmp_ln301)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('col') with incoming values : ('col', resnet50_0.cpp:301) [200]  (0.656 ns)
+
+ <State 2>: 1.84ns
+The critical path consists of the following:
+	'phi' operation ('col') with incoming values : ('col', resnet50_0.cpp:301) [200]  (0 ns)
+	'call' operation ('call_ln301', resnet50_0.cpp:301) to 'dataflow_in_loop' [213]  (1.84 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,78 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'add'" level="0">
+<item name = "Date">Sun Jun  6 15:09:45 2021
+</item>
+<item name = "Version">2019.1.3 (Build 2642998 on Wed Sep 04 10:25:22 MDT 2019)</item>
+<item name = "Project">resnet50_2</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu19eg-ffvc1760-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.419, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1581, 12557, 1581, 12557, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_roundf_fu_362">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_371">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_380">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_389">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_398">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_407">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_416">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_425">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_434">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_443">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_452">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_461">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_470">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_479">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_488">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_497">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_506">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_515">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_524">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_533">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_542">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_551">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_560">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_569">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_578">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_587">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_596">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_605">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_614">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_623">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_632">roundf, 1, 1, 1, 1, function</column>
+<column name="grp_roundf_fu_641">roundf, 1, 1, 1, 1, function</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Add_L">1579, 12555, 13, 1, 1, 1568 ~ 12544, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

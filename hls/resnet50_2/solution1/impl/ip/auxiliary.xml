@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="resnet50_2" xd:componentRef="resnet50_2" xd:initiationInterval="32708150" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="*(sw0in)" xd:originalName="sw0in" xd:direction="in" xd:interfaceRef="sw0in_V" xd:busTypeRef="axis" xd:dataWidth="169"/>
+  <xd:arg xd:name="*(sw0out)" xd:originalName="sw0out" xd:direction="out" xd:interfaceRef="sw0out_V" xd:busTypeRef="axis" xd:dataWidth="169"/>
+  <xd:arg xd:name="*(ddr)" xd:originalName="ddr" xd:direction="inout" xd:interfaceRef="m_axi_ddr_V" xd:busTypeRef="aximm" xd:arraySize="1024" xd:dataWidth="128" xd:bufferDirection="in"/>
+  <xd:arg xd:name="startt[]" xd:originalName="startt" xd:direction="out" xd:interfaceRef="startt_V" xd:busTypeRef="axis" xd:arraySize="1" xd:dataWidth="4"/>
+  <xd:arg xd:name="stopt[]" xd:originalName="stopt" xd:direction="out" xd:interfaceRef="stopt_V" xd:busTypeRef="axis" xd:arraySize="1" xd:dataWidth="4"/>
+  <xd:latencyEstimates xd:best-case="109589" xd:worst-case="32708149" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="276614" xd:FF="152731" xd:BRAM="434" xd:DSP="1448"/>
+</xd:acceleratorMap>

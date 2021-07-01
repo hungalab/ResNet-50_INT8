@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_BREADY' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.426+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_WUSER' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.415+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_WID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.411+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_WLAST' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.394+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_WSTRB' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.350+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_WDATA' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.302+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_WVALID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.282+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWUSER' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.272+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWREGION' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.270+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWQOS' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.267+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWPROT' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.256+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWCACHE' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.253+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWLOCK' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.219+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWBURST' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.194+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWSIZE' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.176+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWLEN' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.144+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.122+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWADDR' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.107+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_parent_loop_1/m_axi_ddr_V_AWVALID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:12:01.099+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_BREADY' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:48.038+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_WUSER' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.563+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_WID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.548+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_WLAST' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.537+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_WSTRB' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.534+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_WDATA' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.504+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_WVALID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.476+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWUSER' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.457+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWREGION' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.435+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWQOS' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.395+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWPROT' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.384+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWCACHE' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.354+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWLOCK' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.340+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWBURST' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.338+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWSIZE' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.323+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWLEN' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.314+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.297+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWADDR' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.294+0900" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'dataflow_in_loop_Con/m_axi_ddr_V_AWVALID' to 0." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:11:28.258+0900" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] The II Violation in module 'resnet50_2' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xA;   between axis read on port 'sw0in_V' (resnet50_2.cpp:280) and axis read on port 'sw0in_V' (resnet50_2.cpp:280)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:09:48.788+0900" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] The II Violation in module 'store_output_1' (Loop: Loop 1): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xA;   between 'store' operation ('outbuf_V_1_addr_write_ln164', resnet50_2.cpp:164) of constant 0 on array 'outbuf_V_2' and 'load' operation ('outbuf_V_1_load', resnet50_2.cpp:163) on array 'outbuf_V_2'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:09:20.738+0900" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule bus read on port 'ddr_V' (resnet50_2.cpp:85) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:08:32.212+0900" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule bus read on port 'ddr_V' (resnet50_2.cpp:70) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:08:32.128+0900" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'store_output.1' to 'store_output_1'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:08:32.025+0900" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'dataflow_parent_loop.1' to 'dataflow_parent_loop_1'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:08:31.887+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:46.249+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.569+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.567+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.564+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.562+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.559+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.541+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.539+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.536+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.534+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.526+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.523+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.521+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.514+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.499+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.497+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.495+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.473+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.471+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.469+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.458+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.456+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.450+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.448+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.446+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.444+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.442+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.440+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.438+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.436+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.433+0900" type="Warning"/>
+        <logs message="WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'outbuf.V.6' (resnet50_2.cpp:116)." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.431+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'dataflow_in_loop_Convolution' to 'dataflow_in_loop_Con' (resnet50_2.cpp:192:2)" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:45.418+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'dataflow_parent_loop_proc' to 'dataflow_parent_loop.1' (resnet50_2.cpp:191:43)" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:07:43.404+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Ignored invalid trip count directive (MAX (= 15) &lt; AVE (= 31)) for loop 'Compute' (resnet50_2.cpp:121:1) in function 'compute'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:32.688+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop upper bound from 56 to 15 for loop 'Compute' (resnet50_2.cpp:121:1) in function 'compute'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:25.584+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 32 for loop 'Convolution' (resnet50_2.cpp:195:1) in function 'dataflow_parent_loop_proc'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:25.581+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-713] All the elements of global array 'outbuf.V.4'  should be updated in process function 'compute', otherwise it may not be synthesized correctly." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:22.517+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-713] Argument 'outbuf.V.4' has read and write operations in process function 'compute'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:22.462+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-713] Reading dataflow channel 'outbuf.V.4'  in the middle of dataflow may stall the dataflow pipeline:" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:22.455+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-713] Argument 'input.V' has read operations in process function 'compute'." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:22.452+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-713] Reading dataflow channel 'input.V'  in the middle of dataflow may stall the dataflow pipeline:" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:05:22.438+0900" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] resnet50_2.cpp:283: variable-indexed range selection may cause suboptimal QoR." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:03:52.100+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-471] Dataflow form checks found 2 issue(s) in file resnet50_2.cpp" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:03:50.134+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 214-110] As the loop bound is not a constant or function argument, the compiler may not successfully process the dataflow loop: resnet50_2.cpp:191:32" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:03:31.892+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body: resnet50_2.cpp:204:27" projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:03:31.884+0900" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'resnet50_2_ap_sitofp_1_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:15:00.271+0900" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'resnet50_2_ap_fmul_0_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:14:59.830+0900" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'resnet50_2_ap_fcmp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:14:59.395+0900" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'resnet50_2_ap_fadd_2_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="resnet50_2" solutionName="solution1" date="2021-06-06T15:14:58.978+0900" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

@@ -1,0 +1,484 @@
+
+
+================================================================
+== Vivado HLS Report for 'resnet50_3'
+================================================================
+* Date:           Sun Jun  6 15:16:10 2021
+
+* Version:        2019.1.3 (Build 2642998 on Wed Sep 04 10:25:22 MDT 2019)
+* Project:        resnet50_3
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffvc1760-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+---------+--------+---------+---------+
+    |      Latency     |     Interval     | Pipeline|
+    |   min  |   max   |   min  |   max   |   Type  |
+    +--------+---------+--------+---------+---------+
+    |  273092|  2080484|  273092|  2080484|   none  |
+    +--------+---------+--------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |          |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  6272|  6272|         2|          2|          1|  3136|    yes   |
+        |- Loop 2  |  1568|  1568|         1|          1|          1|  1568|    yes   |
+        +----------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 2
+  * Pipeline-1: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 30
+* Pipeline : 2
+  Pipeline-0 : II = 2, D = 2, States = { 2 3 }
+  Pipeline-1 : II = 1, D = 1, States = { 7 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 4 3 
+3 --> 2 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 7 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBRAMWithByteEnable([16 x i1024]* @fc_in_V)"   --->   Operation 31 'specbramwithbyteenable' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i176* %sw0in_V), !map !220"   --->   Operation 32 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([1000 x float]* %output_r), !map !226"   --->   Operation 33 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i128* %ddr_V), !map !232"   --->   Operation 34 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %startt_V), !map !238"   --->   Operation 35 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %stopt_V), !map !242"   --->   Operation 36 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([11 x i8]* @resnet50_3_str) nounwind"   --->   Operation 37 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([1000 x float]* %output_r, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)" [resnet50_3.cpp:355]   --->   Operation 38 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface([1000 x float]* %output_r, [10 x i8]* @p_str40, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [resnet50_3.cpp:355]   --->   Operation 39 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str40, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [resnet50_3.cpp:356]   --->   Operation 40 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i176* %sw0in_V, [5 x i8]* @p_str41, i32 1, i32 1, [5 x i8]* @p_str42, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)" [resnet50_3.cpp:357]   --->   Operation 41 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %startt_V, [5 x i8]* @p_str41, i32 1, i32 1, [5 x i8]* @p_str42, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)" [resnet50_3.cpp:358]   --->   Operation 42 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %stopt_V, [5 x i8]* @p_str41, i32 1, i32 1, [5 x i8]* @p_str42, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)" [resnet50_3.cpp:359]   --->   Operation 43 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i128* %ddr_V, [6 x i8]* @p_str43, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 1024, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [resnet50_3.cpp:360]   --->   Operation 44 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([3136 x i288]* @buf0_V, [1 x i8]* @p_str, [12 x i8]* @p_str33, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 45 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([3136 x i288]* @buf1_V, [1 x i8]* @p_str, [12 x i8]* @p_str33, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 46 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([3136 x i288]* @buf2_V, [1 x i8]* @p_str, [12 x i8]* @p_str33, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 47 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([1568 x i1536]* @outbuf_V, [1 x i8]* @p_str, [12 x i8]* @p_str44, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 48 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore([16 x i1024]* @fc_in_V, [1 x i8]* @p_str, [12 x i8]* @p_str44, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 49 'specmemcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.65ns)   --->   "br label %0" [resnet50_3.cpp:380]   --->   Operation 50 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 1.26>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%l_0 = phi i12 [ 0, %._crit_edge ], [ %l, %hls_label_31 ]"   --->   Operation 51 'phi' 'l_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (0.97ns)   --->   "%icmp_ln380 = icmp eq i12 %l_0, -960" [resnet50_3.cpp:380]   --->   Operation 52 'icmp' 'icmp_ln380' <Predicate = true> <Delay = 0.97> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.94> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 3136, i64 3136, i64 3136)"   --->   Operation 53 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.80ns)   --->   "%l = add i12 %l_0, 1" [resnet50_3.cpp:380]   --->   Operation 54 'add' 'l' <Predicate = true> <Delay = 0.80> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %icmp_ln380, label %1, label %hls_label_31" [resnet50_3.cpp:380]   --->   Operation 55 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%sw0in_V_read = call i176 @_ssdm_op_Read.axis.volatile.i176P(i176* %sw0in_V)" [resnet50_3.cpp:384]   --->   Operation 56 'read' 'sw0in_V_read' <Predicate = (!icmp_ln380)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%trunc_ln647 = trunc i176 %sw0in_V_read to i8" [resnet50_3.cpp:387]   --->   Operation 57 'trunc' 'trunc_ln647' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%p_Result_0_1 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 8, i32 15)" [resnet50_3.cpp:387]   --->   Operation 58 'partselect' 'p_Result_0_1' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%p_Result_0_2 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 16, i32 23)" [resnet50_3.cpp:387]   --->   Operation 59 'partselect' 'p_Result_0_2' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%p_Result_0_3 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 24, i32 31)" [resnet50_3.cpp:387]   --->   Operation 60 'partselect' 'p_Result_0_3' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%p_Result_0_4 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 32, i32 39)" [resnet50_3.cpp:387]   --->   Operation 61 'partselect' 'p_Result_0_4' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%p_Result_0_5 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 40, i32 47)" [resnet50_3.cpp:387]   --->   Operation 62 'partselect' 'p_Result_0_5' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%p_Result_0_6 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 48, i32 55)" [resnet50_3.cpp:387]   --->   Operation 63 'partselect' 'p_Result_0_6' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%p_Result_0_7 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 56, i32 63)" [resnet50_3.cpp:387]   --->   Operation 64 'partselect' 'p_Result_0_7' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%p_Result_0_8 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 64, i32 71)" [resnet50_3.cpp:387]   --->   Operation 65 'partselect' 'p_Result_0_8' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%p_Result_0_9 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 72, i32 79)" [resnet50_3.cpp:387]   --->   Operation 66 'partselect' 'p_Result_0_9' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%p_Result_0_s = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 80, i32 87)" [resnet50_3.cpp:387]   --->   Operation 67 'partselect' 'p_Result_0_s' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%p_Result_0_10 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 88, i32 95)" [resnet50_3.cpp:387]   --->   Operation 68 'partselect' 'p_Result_0_10' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%p_Result_0_11 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 96, i32 103)" [resnet50_3.cpp:387]   --->   Operation 69 'partselect' 'p_Result_0_11' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%p_Result_0_12 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 104, i32 111)" [resnet50_3.cpp:387]   --->   Operation 70 'partselect' 'p_Result_0_12' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%p_Result_0_13 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 112, i32 119)" [resnet50_3.cpp:387]   --->   Operation 71 'partselect' 'p_Result_0_13' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%p_Result_0_14 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read, i32 120, i32 127)" [resnet50_3.cpp:387]   --->   Operation 72 'partselect' 'p_Result_0_14' <Predicate = (!icmp_ln380)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.23>
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str45)" [resnet50_3.cpp:380]   --->   Operation 73 'specregionbegin' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 74 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [resnet50_3.cpp:381]   --->   Operation 74 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 75 [1/1] (0.00ns)   --->   "%zext_ln388 = zext i12 %l_0 to i64" [resnet50_3.cpp:388]   --->   Operation 75 'zext' 'zext_ln388' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%zext_ln78 = zext i8 %trunc_ln647 to i9" [resnet50_3.cpp:388]   --->   Operation 76 'zext' 'zext_ln78' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 77 [1/1] (0.00ns)   --->   "%buf0_V_addr = getelementptr [3136 x i288]* @buf0_V, i64 0, i64 %zext_ln388" [resnet50_3.cpp:388]   --->   Operation 77 'getelementptr' 'buf0_V_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln78_1 = zext i8 %p_Result_0_1 to i9" [resnet50_3.cpp:388]   --->   Operation 78 'zext' 'zext_ln78_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln78_2 = zext i8 %p_Result_0_2 to i9" [resnet50_3.cpp:388]   --->   Operation 79 'zext' 'zext_ln78_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln78_3 = zext i8 %p_Result_0_3 to i9" [resnet50_3.cpp:388]   --->   Operation 80 'zext' 'zext_ln78_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%zext_ln78_4 = zext i8 %p_Result_0_4 to i9" [resnet50_3.cpp:388]   --->   Operation 81 'zext' 'zext_ln78_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "%zext_ln78_5 = zext i8 %p_Result_0_5 to i9" [resnet50_3.cpp:388]   --->   Operation 82 'zext' 'zext_ln78_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 83 [1/1] (0.00ns)   --->   "%zext_ln78_6 = zext i8 %p_Result_0_6 to i9" [resnet50_3.cpp:388]   --->   Operation 83 'zext' 'zext_ln78_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln78_7 = zext i8 %p_Result_0_7 to i9" [resnet50_3.cpp:388]   --->   Operation 84 'zext' 'zext_ln78_7' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 85 [1/1] (0.00ns)   --->   "%zext_ln78_8 = zext i8 %p_Result_0_8 to i9" [resnet50_3.cpp:388]   --->   Operation 85 'zext' 'zext_ln78_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln78_9 = zext i8 %p_Result_0_9 to i9" [resnet50_3.cpp:388]   --->   Operation 86 'zext' 'zext_ln78_9' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln78_10 = zext i8 %p_Result_0_s to i9" [resnet50_3.cpp:388]   --->   Operation 87 'zext' 'zext_ln78_10' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 88 [1/1] (0.00ns)   --->   "%zext_ln78_11 = zext i8 %p_Result_0_10 to i9" [resnet50_3.cpp:388]   --->   Operation 88 'zext' 'zext_ln78_11' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%zext_ln78_12 = zext i8 %p_Result_0_11 to i9" [resnet50_3.cpp:388]   --->   Operation 89 'zext' 'zext_ln78_12' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "%zext_ln78_13 = zext i8 %p_Result_0_12 to i9" [resnet50_3.cpp:388]   --->   Operation 90 'zext' 'zext_ln78_13' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%zext_ln78_14 = zext i8 %p_Result_0_13 to i9" [resnet50_3.cpp:388]   --->   Operation 91 'zext' 'zext_ln78_14' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln78_15 = zext i8 %p_Result_0_14 to i9" [resnet50_3.cpp:388]   --->   Operation 92 'zext' 'zext_ln78_15' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%sw0in_V_read_1 = call i176 @_ssdm_op_Read.axis.volatile.i176P(i176* %sw0in_V)" [resnet50_3.cpp:384]   --->   Operation 93 'read' 'sw0in_V_read_1' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 94 [1/1] (0.00ns)   --->   "%trunc_ln647_1 = trunc i176 %sw0in_V_read_1 to i8" [resnet50_3.cpp:387]   --->   Operation 94 'trunc' 'trunc_ln647_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 95 [1/1] (0.00ns)   --->   "%zext_ln78_16 = zext i8 %trunc_ln647_1 to i9" [resnet50_3.cpp:388]   --->   Operation 95 'zext' 'zext_ln78_16' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%p_Result_1_1 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 8, i32 15)" [resnet50_3.cpp:387]   --->   Operation 96 'partselect' 'p_Result_1_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%zext_ln78_17 = zext i8 %p_Result_1_1 to i9" [resnet50_3.cpp:388]   --->   Operation 97 'zext' 'zext_ln78_17' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%p_Result_1_2 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 16, i32 23)" [resnet50_3.cpp:387]   --->   Operation 98 'partselect' 'p_Result_1_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%zext_ln78_18 = zext i8 %p_Result_1_2 to i9" [resnet50_3.cpp:388]   --->   Operation 99 'zext' 'zext_ln78_18' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%p_Result_1_3 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 24, i32 31)" [resnet50_3.cpp:387]   --->   Operation 100 'partselect' 'p_Result_1_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%zext_ln78_19 = zext i8 %p_Result_1_3 to i9" [resnet50_3.cpp:388]   --->   Operation 101 'zext' 'zext_ln78_19' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%p_Result_1_4 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 32, i32 39)" [resnet50_3.cpp:387]   --->   Operation 102 'partselect' 'p_Result_1_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln78_20 = zext i8 %p_Result_1_4 to i9" [resnet50_3.cpp:388]   --->   Operation 103 'zext' 'zext_ln78_20' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%p_Result_1_5 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 40, i32 47)" [resnet50_3.cpp:387]   --->   Operation 104 'partselect' 'p_Result_1_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 105 [1/1] (0.00ns)   --->   "%zext_ln78_21 = zext i8 %p_Result_1_5 to i9" [resnet50_3.cpp:388]   --->   Operation 105 'zext' 'zext_ln78_21' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%p_Result_1_6 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 48, i32 55)" [resnet50_3.cpp:387]   --->   Operation 106 'partselect' 'p_Result_1_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln78_22 = zext i8 %p_Result_1_6 to i9" [resnet50_3.cpp:388]   --->   Operation 107 'zext' 'zext_ln78_22' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%p_Result_1_7 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 56, i32 63)" [resnet50_3.cpp:387]   --->   Operation 108 'partselect' 'p_Result_1_7' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 109 [1/1] (0.00ns)   --->   "%zext_ln78_23 = zext i8 %p_Result_1_7 to i9" [resnet50_3.cpp:388]   --->   Operation 109 'zext' 'zext_ln78_23' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%p_Result_1_8 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 64, i32 71)" [resnet50_3.cpp:387]   --->   Operation 110 'partselect' 'p_Result_1_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%zext_ln78_24 = zext i8 %p_Result_1_8 to i9" [resnet50_3.cpp:388]   --->   Operation 111 'zext' 'zext_ln78_24' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%p_Result_1_9 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 72, i32 79)" [resnet50_3.cpp:387]   --->   Operation 112 'partselect' 'p_Result_1_9' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%zext_ln78_25 = zext i8 %p_Result_1_9 to i9" [resnet50_3.cpp:388]   --->   Operation 113 'zext' 'zext_ln78_25' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%p_Result_1_s = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 80, i32 87)" [resnet50_3.cpp:387]   --->   Operation 114 'partselect' 'p_Result_1_s' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%zext_ln78_26 = zext i8 %p_Result_1_s to i9" [resnet50_3.cpp:388]   --->   Operation 115 'zext' 'zext_ln78_26' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%p_Result_1_10 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 88, i32 95)" [resnet50_3.cpp:387]   --->   Operation 116 'partselect' 'p_Result_1_10' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln78_27 = zext i8 %p_Result_1_10 to i9" [resnet50_3.cpp:388]   --->   Operation 117 'zext' 'zext_ln78_27' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%p_Result_1_11 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 96, i32 103)" [resnet50_3.cpp:387]   --->   Operation 118 'partselect' 'p_Result_1_11' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 119 [1/1] (0.00ns)   --->   "%zext_ln78_28 = zext i8 %p_Result_1_11 to i9" [resnet50_3.cpp:388]   --->   Operation 119 'zext' 'zext_ln78_28' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 120 [1/1] (0.00ns)   --->   "%p_Result_1_12 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 104, i32 111)" [resnet50_3.cpp:387]   --->   Operation 120 'partselect' 'p_Result_1_12' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 121 [1/1] (0.00ns)   --->   "%zext_ln78_29 = zext i8 %p_Result_1_12 to i9" [resnet50_3.cpp:388]   --->   Operation 121 'zext' 'zext_ln78_29' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "%p_Result_1_13 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 112, i32 119)" [resnet50_3.cpp:387]   --->   Operation 122 'partselect' 'p_Result_1_13' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 123 [1/1] (0.00ns)   --->   "%zext_ln78_30 = zext i8 %p_Result_1_13 to i9" [resnet50_3.cpp:388]   --->   Operation 123 'zext' 'zext_ln78_30' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%p_Result_1_14 = call i8 @_ssdm_op_PartSelect.i8.i176.i32.i32(i176 %sw0in_V_read_1, i32 120, i32 127)" [resnet50_3.cpp:387]   --->   Operation 124 'partselect' 'p_Result_1_14' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%tmp = call i287 @_ssdm_op_BitConcatenate.i287.i8.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9.i9(i8 %p_Result_1_14, i9 %zext_ln78_30, i9 %zext_ln78_29, i9 %zext_ln78_28, i9 %zext_ln78_27, i9 %zext_ln78_26, i9 %zext_ln78_25, i9 %zext_ln78_24, i9 %zext_ln78_23, i9 %zext_ln78_22, i9 %zext_ln78_21, i9 %zext_ln78_20, i9 %zext_ln78_19, i9 %zext_ln78_18, i9 %zext_ln78_17, i9 %zext_ln78_16, i9 %zext_ln78_15, i9 %zext_ln78_14, i9 %zext_ln78_13, i9 %zext_ln78_12, i9 %zext_ln78_11, i9 %zext_ln78_10, i9 %zext_ln78_9, i9 %zext_ln78_8, i9 %zext_ln78_7, i9 %zext_ln78_6, i9 %zext_ln78_5, i9 %zext_ln78_4, i9 %zext_ln78_3, i9 %zext_ln78_2, i9 %zext_ln78_1, i9 %zext_ln78)" [resnet50_3.cpp:388]   --->   Operation 125 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "%zext_ln180 = zext i287 %tmp to i288" [resnet50_3.cpp:388]   --->   Operation 126 'zext' 'zext_ln180' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 127 [1/1] (1.23ns)   --->   "store i288 %zext_ln180, i288* %buf0_V_addr, align 8" [resnet50_3.cpp:388]   --->   Operation 127 'store' <Predicate = true> <Delay = 1.23> <Core = "RAM_2P_URAM">   --->   Core 43 'RAM_2P_URAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 288> <Depth = 3136> <RAM>
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str45, i32 %tmp_s)" [resnet50_3.cpp:391]   --->   Operation 128 'specregionend' 'empty' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "br label %0" [resnet50_3.cpp:380]   --->   Operation 129 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.23>
+ST_4 : Operation 130 [2/2] (1.23ns)   --->   "%buf0_V_load = load i288* getelementptr inbounds ([3136 x i288]* @buf0_V, i64 0, i64 3135), align 8" [resnet50_3.cpp:393]   --->   Operation 130 'load' 'buf0_V_load' <Predicate = true> <Delay = 1.23> <Core = "RAM_2P_URAM">   --->   Core 43 'RAM_2P_URAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 288> <Depth = 3136> <RAM>
+
+State 5 <SV = 3> <Delay = 1.23>
+ST_5 : Operation 131 [1/2] (1.23ns)   --->   "%buf0_V_load = load i288* getelementptr inbounds ([3136 x i288]* @buf0_V, i64 0, i64 3135), align 8" [resnet50_3.cpp:393]   --->   Operation 131 'load' 'buf0_V_load' <Predicate = true> <Delay = 1.23> <Core = "RAM_2P_URAM">   --->   Core 43 'RAM_2P_URAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 288> <Depth = 3136> <RAM>
+ST_5 : Operation 132 [1/1] (0.00ns)   --->   "%trunc_ln = call i4 @_ssdm_op_PartSelect.i4.i288.i32.i32(i288 %buf0_V_load, i32 279, i32 282)" [resnet50_3.cpp:393]   --->   Operation 132 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 133 [1/1] (0.00ns)   --->   "%zext_ln321 = zext i4 %trunc_ln to i8" [resnet50_3.cpp:393]   --->   Operation 133 'zext' 'zext_ln321' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 134 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i8P(i8* %startt_V, i8 %zext_ln321)" [resnet50_3.cpp:393]   --->   Operation 134 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+State 6 <SV = 4> <Delay = 0.65>
+ST_6 : Operation 135 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i8P(i8* %startt_V, i8 %zext_ln321)" [resnet50_3.cpp:393]   --->   Operation 135 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_6 : Operation 136 [1/1] (0.65ns)   --->   "br label %2" [resnet50_3.cpp:395]   --->   Operation 136 'br' <Predicate = true> <Delay = 0.65>
+
+State 7 <SV = 5> <Delay = 1.23>
+ST_7 : Operation 137 [1/1] (0.00ns)   --->   "%i1_0 = phi i11 [ 0, %1 ], [ %i, %hls_label_32 ]"   --->   Operation 137 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 138 [1/1] (0.94ns)   --->   "%icmp_ln395 = icmp eq i11 %i1_0, -480" [resnet50_3.cpp:395]   --->   Operation 138 'icmp' 'icmp_ln395' <Predicate = true> <Delay = 0.94> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.94> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 139 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 1568, i64 1568, i64 1568)"   --->   Operation 139 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 140 [1/1] (0.79ns)   --->   "%i = add i11 %i1_0, 1" [resnet50_3.cpp:395]   --->   Operation 140 'add' 'i' <Predicate = true> <Delay = 0.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 141 [1/1] (0.00ns)   --->   "br i1 %icmp_ln395, label %3, label %hls_label_32" [resnet50_3.cpp:395]   --->   Operation 141 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 142 [1/1] (0.00ns)   --->   "%tmp_354 = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str46)" [resnet50_3.cpp:395]   --->   Operation 142 'specregionbegin' 'tmp_354' <Predicate = (!icmp_ln395)> <Delay = 0.00>
+ST_7 : Operation 143 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [resnet50_3.cpp:396]   --->   Operation 143 'specpipeline' <Predicate = (!icmp_ln395)> <Delay = 0.00>
+ST_7 : Operation 144 [1/1] (0.00ns)   --->   "%zext_ln398 = zext i11 %i1_0 to i64" [resnet50_3.cpp:398]   --->   Operation 144 'zext' 'zext_ln398' <Predicate = (!icmp_ln395)> <Delay = 0.00>
+ST_7 : Operation 145 [1/1] (0.00ns)   --->   "%outbuf_V_addr = getelementptr [1568 x i1536]* @outbuf_V, i64 0, i64 %zext_ln398" [resnet50_3.cpp:398]   --->   Operation 145 'getelementptr' 'outbuf_V_addr' <Predicate = (!icmp_ln395)> <Delay = 0.00>
+ST_7 : Operation 146 [1/1] (1.23ns)   --->   "store i1536 0, i1536* %outbuf_V_addr, align 16" [resnet50_3.cpp:398]   --->   Operation 146 'store' <Predicate = (!icmp_ln395)> <Delay = 1.23> <Core = "RAM_2P_BRAM">   --->   Core 42 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1024> <Depth = 16> <RAM>
+ST_7 : Operation 147 [1/1] (0.00ns)   --->   "%empty_42 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str46, i32 %tmp_354)" [resnet50_3.cpp:400]   --->   Operation 147 'specregionend' 'empty_42' <Predicate = (!icmp_ln395)> <Delay = 0.00>
+ST_7 : Operation 148 [1/1] (0.00ns)   --->   "br label %2" [resnet50_3.cpp:395]   --->   Operation 148 'br' <Predicate = (!icmp_ln395)> <Delay = 0.00>
+
+State 8 <SV = 6> <Delay = 8.15>
+ST_8 : Operation 149 [2/2] (8.15ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf0_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 64, i4 1, i1 false, i24 0)"   --->   Operation 149 'call' <Predicate = true> <Delay = 8.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 7> <Delay = 0.00>
+ST_9 : Operation 150 [1/2] (0.00ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf0_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 64, i4 1, i1 false, i24 0)"   --->   Operation 150 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 10 <SV = 8> <Delay = 8.15>
+ST_10 : Operation 151 [2/2] (8.15ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf1_V, [3136 x i288]* @buf2_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 16, i4 3, i1 true, i24 1052672)"   --->   Operation 151 'call' <Predicate = true> <Delay = 8.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 11 <SV = 9> <Delay = 0.00>
+ST_11 : Operation 152 [1/2] (0.00ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf1_V, [3136 x i288]* @buf2_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 16, i4 3, i1 true, i24 1052672)"   --->   Operation 152 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 12 <SV = 10> <Delay = 8.15>
+ST_12 : Operation 153 [2/2] (8.15ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf2_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 32, i8 16, i4 1, i1 false, i24 3416064)"   --->   Operation 153 'call' <Predicate = true> <Delay = 8.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 13 <SV = 11> <Delay = 0.00>
+ST_13 : Operation 154 [1/2] (0.00ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf2_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 32, i8 16, i4 1, i1 false, i24 3416064)"   --->   Operation 154 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 14 <SV = 12> <Delay = 0.65>
+ST_14 : Operation 155 [2/2] (0.65ns)   --->   "call fastcc void @add([3136 x i288]* @buf0_V, [3136 x i288]* @buf2_V, float 0x3FEAC587A0000000, float 0x3FF35EDAE0000000)"   --->   Operation 155 'call' <Predicate = true> <Delay = 0.65> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 13> <Delay = 0.00>
+ST_15 : Operation 156 [1/2] (0.00ns)   --->   "call fastcc void @add([3136 x i288]* @buf0_V, [3136 x i288]* @buf2_V, float 0x3FEAC587A0000000, float 0x3FF35EDAE0000000)"   --->   Operation 156 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 16 <SV = 14> <Delay = 8.15>
+ST_16 : Operation 157 [2/2] (8.15ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf2_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 64, i4 1, i1 false, i24 4481024)"   --->   Operation 157 'call' <Predicate = true> <Delay = 8.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 17 <SV = 15> <Delay = 0.00>
+ST_17 : Operation 158 [1/2] (0.00ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf2_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 64, i4 1, i1 false, i24 4481024)"   --->   Operation 158 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 18 <SV = 16> <Delay = 8.15>
+ST_18 : Operation 159 [2/2] (8.15ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf1_V, [3136 x i288]* @buf0_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 16, i4 3, i1 true, i24 5533696)"   --->   Operation 159 'call' <Predicate = true> <Delay = 8.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 19 <SV = 17> <Delay = 0.00>
+ST_19 : Operation 160 [1/2] (0.00ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf1_V, [3136 x i288]* @buf0_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 8, i8 16, i4 3, i1 true, i24 5533696)"   --->   Operation 160 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 20 <SV = 18> <Delay = 8.15>
+ST_20 : Operation 161 [2/2] (8.15ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf0_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 32, i8 16, i4 1, i1 false, i24 7897088)"   --->   Operation 161 'call' <Predicate = true> <Delay = 8.15> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 21 <SV = 19> <Delay = 0.00>
+ST_21 : Operation 162 [1/2] (0.00ns)   --->   "call fastcc void @conv_layer([3136 x i288]* @buf0_V, [3136 x i288]* @buf1_V, [1568 x i1536]* @outbuf_V, i128* %ddr_V, i7 32, i8 16, i4 1, i1 false, i24 7897088)"   --->   Operation 162 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 22 <SV = 20> <Delay = 0.65>
+ST_22 : Operation 163 [2/2] (0.65ns)   --->   "call fastcc void @add([3136 x i288]* @buf2_V, [3136 x i288]* @buf0_V, float 0x3FE23D6540000000, float 0x3FE8E55080000000)"   --->   Operation 163 'call' <Predicate = true> <Delay = 0.65> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 23 <SV = 21> <Delay = 0.00>
+ST_23 : Operation 164 [1/2] (0.00ns)   --->   "call fastcc void @add([3136 x i288]* @buf2_V, [3136 x i288]* @buf0_V, float 0x3FE23D6540000000, float 0x3FE8E55080000000)"   --->   Operation 164 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 24 <SV = 22> <Delay = 0.00>
+ST_24 : Operation 165 [2/2] (0.00ns)   --->   "call fastcc void @average_pool([3136 x i288]* @buf0_V, [16 x i1024]* @fc_in_V)"   --->   Operation 165 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 25 <SV = 23> <Delay = 0.00>
+ST_25 : Operation 166 [1/2] (0.00ns)   --->   "call fastcc void @average_pool([3136 x i288]* @buf0_V, [16 x i1024]* @fc_in_V)"   --->   Operation 166 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 26 <SV = 24> <Delay = 0.00>
+ST_26 : Operation 167 [2/2] (0.00ns)   --->   "call fastcc void @fc([16 x i1024]* @fc_in_V, [1000 x float]* %output_r, i128* %ddr_V)"   --->   Operation 167 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 27 <SV = 25> <Delay = 0.00>
+ST_27 : Operation 168 [1/2] (0.00ns)   --->   "call fastcc void @fc([16 x i1024]* @fc_in_V, [1000 x float]* %output_r, i128* %ddr_V)"   --->   Operation 168 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 28 <SV = 26> <Delay = 1.23>
+ST_28 : Operation 169 [2/2] (1.23ns)   --->   "%fc_in_V_load = load i1024* getelementptr inbounds ([16 x i1024]* @fc_in_V, i64 0, i64 15), align 16" [resnet50_3.cpp:416]   --->   Operation 169 'load' 'fc_in_V_load' <Predicate = true> <Delay = 1.23> <Core = "RAM_2P_BRAM">   --->   Core 42 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1024> <Depth = 16> <RAM>
+
+State 29 <SV = 27> <Delay = 1.23>
+ST_29 : Operation 170 [1/2] (1.23ns)   --->   "%fc_in_V_load = load i1024* getelementptr inbounds ([16 x i1024]* @fc_in_V, i64 0, i64 15), align 16" [resnet50_3.cpp:416]   --->   Operation 170 'load' 'fc_in_V_load' <Predicate = true> <Delay = 1.23> <Core = "RAM_2P_BRAM">   --->   Core 42 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1024> <Depth = 16> <RAM>
+ST_29 : Operation 171 [1/1] (0.00ns)   --->   "%trunc_ln296_2 = call i4 @_ssdm_op_PartSelect.i4.i1024.i32.i32(i1024 %fc_in_V_load, i32 1016, i32 1019)" [resnet50_3.cpp:416]   --->   Operation 171 'partselect' 'trunc_ln296_2' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 172 [1/1] (0.00ns)   --->   "%zext_ln321_1 = zext i4 %trunc_ln296_2 to i8" [resnet50_3.cpp:416]   --->   Operation 172 'zext' 'zext_ln321_1' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 173 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i8P(i8* %stopt_V, i8 %zext_ln321_1)" [resnet50_3.cpp:416]   --->   Operation 173 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+State 30 <SV = 28> <Delay = 0.00>
+ST_30 : Operation 174 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i8P(i8* %stopt_V, i8 %zext_ln321_1)" [resnet50_3.cpp:416]   --->   Operation 174 'write' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_30 : Operation 175 [1/1] (0.00ns)   --->   "ret void" [resnet50_3.cpp:418]   --->   Operation 175 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('l') with incoming values : ('l', resnet50_3.cpp:380) [34]  (0.656 ns)
+
+ <State 2>: 1.26ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln380', resnet50_3.cpp:380) [35]  (0.976 ns)
+	blocking operation 0.287 ns on control path)
+
+ <State 3>: 1.24ns
+The critical path consists of the following:
+	'getelementptr' operation ('buf0_V_addr', resnet50_3.cpp:388) [46]  (0 ns)
+	'store' operation ('store_ln388', resnet50_3.cpp:388) of variable 'zext_ln180', resnet50_3.cpp:388 on array 'buf0_V' [111]  (1.24 ns)
+
+ <State 4>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('buf0_V_load', resnet50_3.cpp:393) on array 'buf0_V' [115]  (1.24 ns)
+
+ <State 5>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('buf0_V_load', resnet50_3.cpp:393) on array 'buf0_V' [115]  (1.24 ns)
+
+ <State 6>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', resnet50_3.cpp:395) [121]  (0.656 ns)
+
+ <State 7>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', resnet50_3.cpp:395) [121]  (0 ns)
+	'getelementptr' operation ('outbuf_V_addr', resnet50_3.cpp:398) [130]  (0 ns)
+	'store' operation ('store_ln398', resnet50_3.cpp:398) of constant 0 on array 'outbuf_V' [131]  (1.24 ns)
+
+ <State 8>: 8.16ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'conv_layer' [135]  (8.16 ns)
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 8.16ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'conv_layer' [136]  (8.16 ns)
+
+ <State 11>: 0ns
+The critical path consists of the following:
+
+ <State 12>: 8.16ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'conv_layer' [137]  (8.16 ns)
+
+ <State 13>: 0ns
+The critical path consists of the following:
+
+ <State 14>: 0.656ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'add' [138]  (0.656 ns)
+
+ <State 15>: 0ns
+The critical path consists of the following:
+
+ <State 16>: 8.16ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'conv_layer' [139]  (8.16 ns)
+
+ <State 17>: 0ns
+The critical path consists of the following:
+
+ <State 18>: 8.16ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'conv_layer' [140]  (8.16 ns)
+
+ <State 19>: 0ns
+The critical path consists of the following:
+
+ <State 20>: 8.16ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'conv_layer' [141]  (8.16 ns)
+
+ <State 21>: 0ns
+The critical path consists of the following:
+
+ <State 22>: 0.656ns
+The critical path consists of the following:
+	'call' operation ('call_ln0') to 'add' [142]  (0.656 ns)
+
+ <State 23>: 0ns
+The critical path consists of the following:
+
+ <State 24>: 0ns
+The critical path consists of the following:
+
+ <State 25>: 0ns
+The critical path consists of the following:
+
+ <State 26>: 0ns
+The critical path consists of the following:
+
+ <State 27>: 0ns
+The critical path consists of the following:
+
+ <State 28>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('fc_in_V_load', resnet50_3.cpp:416) on array 'fc_in_V' [145]  (1.24 ns)
+
+ <State 29>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('fc_in_V_load', resnet50_3.cpp:416) on array 'fc_in_V' [145]  (1.24 ns)
+
+ <State 30>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,110 @@
+-- ==============================================================
+-- Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1.3 (64-bit)
+-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-- ==============================================================
+library ieee; 
+use ieee.std_logic_1164.all; 
+use ieee.std_logic_unsigned.all;
+
+entity Loop_0_proc_c1_weight_V_1_rom is 
+    generic(
+             DWIDTH     : integer := 8; 
+             AWIDTH     : integer := 6; 
+             MEM_SIZE    : integer := 49
+    ); 
+    port (
+          addr0      : in std_logic_vector(AWIDTH-1 downto 0); 
+          ce0       : in std_logic; 
+          q0         : out std_logic_vector(DWIDTH-1 downto 0);
+          clk       : in std_logic
+    ); 
+end entity; 
+
+
+architecture rtl of Loop_0_proc_c1_weight_V_1_rom is 
+
+signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
+type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
+signal mem : mem_array := (
+    0 => "11111010", 1 => "00000100", 2 => "00001000", 3 to 4=> "00010010", 
+    5 => "00001111", 6 to 7=> "11111101", 8 => "00000110", 9 => "00010111", 
+    10 => "00101100", 11 => "00110101", 12 => "00110001", 13 => "00101000", 
+    14 => "11110001", 15 => "11100111", 16 => "11100010", 17 => "11111111", 
+    18 => "00101001", 19 => "00111000", 20 => "00111011", 21 => "11110011", 
+    22 => "11010111", 23 => "10101101", 24 => "10010110", 25 => "10101100", 
+    26 => "11100110", 27 => "00001110", 28 => "00001010", 29 => "00000101", 
+    30 => "11100100", 31 => "10101111", 32 => "10000000", 33 => "10011010", 
+    34 => "11010001", 35 => "00011100", 36 => "00101110", 37 => "00110011", 
+    38 => "00101011", 39 => "11111110", 40 => "11010110", 41 => "11010101", 
+    42 => "11111110", 43 => "00011010", 44 => "00101111", 45 => "01000111", 
+    46 => "00111110", 47 => "00100101", 48 => "00001000" );
+
+attribute syn_rom_style : string;
+attribute syn_rom_style of mem : signal is "select_rom";
+attribute ROM_STYLE : string;
+attribute ROM_STYLE of mem : signal is "distributed";
+
+begin 
+
+
+memory_access_guard_0: process (addr0) 
+begin
+      addr0_tmp <= addr0;
+--synthesis translate_off
+      if (CONV_INTEGER(addr0) > mem_size-1) then
+           addr0_tmp <= (others => '0');
+      else 
+           addr0_tmp <= addr0;
+      end if;
+--synthesis translate_on
+end process;
+
+p_rom_access: process (clk)  
+begin 
+    if (clk'event and clk = '1') then
+        if (ce0 = '1') then 
+            q0 <= mem(CONV_INTEGER(addr0_tmp)); 
+        end if;
+    end if;
+end process;
+
+end rtl;
+
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity Loop_0_proc_c1_weight_V_1 is
+    generic (
+        DataWidth : INTEGER := 8;
+        AddressRange : INTEGER := 49;
+        AddressWidth : INTEGER := 6);
+    port (
+        reset : IN STD_LOGIC;
+        clk : IN STD_LOGIC;
+        address0 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
+        ce0 : IN STD_LOGIC;
+        q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0));
+end entity;
+
+architecture arch of Loop_0_proc_c1_weight_V_1 is
+    component Loop_0_proc_c1_weight_V_1_rom is
+        port (
+            clk : IN STD_LOGIC;
+            addr0 : IN STD_LOGIC_VECTOR;
+            ce0 : IN STD_LOGIC;
+            q0 : OUT STD_LOGIC_VECTOR);
+    end component;
+
+
+
+begin
+    Loop_0_proc_c1_weight_V_1_rom_U :  component Loop_0_proc_c1_weight_V_1_rom
+    port map (
+        clk => clk,
+        addr0 => address0,
+        ce0 => ce0,
+        q0 => q0);
+
+end architecture;
+
+
