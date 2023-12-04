@@ -86,7 +86,7 @@ int main(){
 
 	FILE *fp;
 
-	fp = fopen("/home/asap_jupiter/yasu/workspace1/Imagenet_txt/1000/0.txt", "r");
+	fp = fopen("input0.txt", "r");
 	for(int i=0; i<C1_ISIZE*C1_ISIZE*C1_ICH; i++) fscanf(fp, "%f\n", &image[i]);
 	fclose(fp);
 
@@ -98,7 +98,7 @@ int main(){
 		}
 	}
 
-	fp = fopen("/home/asap_jupiter/yasu/workspace1/resnet50/params/ddr0.txt", "r");
+	fp = fopen("../params/ddr0.txt", "r");
 	for(int i=0; i<DDRSIZE/4; i++) fscanf(fp, "%d\n", &ddr_tmp[i]);
 	fclose(fp);
 
@@ -138,7 +138,7 @@ int main(){
 		}
 	}
 
-	fp = fopen("/home/asap_jupiter/yasu/workspace1/resnet50_test/50_0xout.txt", "w");
+	fp = fopen("50_0out.txt", "w");
 	for(int i=0; i<OUTPUTSIZE; i++) fprintf(fp, "%d\n", result[i]);
 	fclose(fp);
 

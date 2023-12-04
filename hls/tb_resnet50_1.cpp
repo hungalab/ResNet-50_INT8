@@ -99,11 +99,11 @@ int main(){
 
 	FILE *fp;
 
-	fp = fopen("/home/asap_jupiter/yasu/workspace1/resnet50_test/50_0out.txt", "r");
+	fp = fopen("golden_data/50_0out.txt", "r");
 	for(int i=0; i<INPUTSIZE; i++) fscanf(fp, "%d\n", &input[i]);
 	fclose(fp);
 
-	fp = fopen("/home/asap_jupiter/yasu/workspace1/resnet50/params/ddr1.txt", "r");
+	fp = fopen("../params/ddr1.txt", "r");
 	for(int i=0; i<DDRSIZE/4; i++) fscanf(fp, "%d\n", &ddr_tmp[i]);
 	fclose(fp);
 
@@ -141,7 +141,7 @@ int main(){
 		}
 	}
 
-	fp = fopen("/home/asap_jupiter/yasu/workspace1/resnet50_test/50_1out.txt", "w");
+	fp = fopen("50_1out.txt", "w");
 	for(int i=0; i<OUTPUTSIZE; i++) fprintf(fp, "%d\n", result[i]);
 	fclose(fp);
 
